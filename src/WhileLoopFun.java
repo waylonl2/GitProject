@@ -12,6 +12,11 @@ public class WhileLoopFun {
      lines)
      */
     public void printDigits(int number) {
+        String numberStr = Integer.toString(number);
+        for (int i = numberStr.length(); i > 0; i--) {
+            char x = numberStr.charAt(i - 1);
+            System.out.println(x);
+        }
     }
 
     /** Returns the number of times letter occurs in word.
@@ -23,6 +28,14 @@ public class WhileLoopFun {
      try it this time using a while loop.
      */
     public int countLetter(String word, String letter) {
+        int counter = 0;
+        for (int i = 0; i < word.length(); i++) {
+            String charStr = Character.toString(word.charAt(i));
+            if (charStr.equals(letter)) {
+                counter++;
+            }
+        }
+        return counter;
     }
 
     /**Returns the maximum number of times that number can be doubled before it exceeds threshold
@@ -47,6 +60,14 @@ public class WhileLoopFun {
      Precondition: number > 0, threshold > 0
      */
     public int maxDoubles(int number, int threshold) {
+        int counter = 0;
+        while (number < threshold) {
+            number *= 2;
+            if (number <= threshold) {
+                counter++;
+            }
+        }
+        return counter;
     }
 
     /**Returns true if number is prime (i.e. it has exactly two divisors: 1 and itself) and false
@@ -62,5 +83,16 @@ public class WhileLoopFun {
      but 1 has only a single divisor! (don’t believe it? Google it!)
      */
     public boolean isPrime(int number) {
+        int counter = 0;
+        if (number == 1) {
+            return false;
+        } else {
+            for (int i = 1; i <= number; i++) {
+                if (number % i == 0) {
+                    counter++;
+                }
+            }
+            return counter == 2;
+        }
     }
 }
